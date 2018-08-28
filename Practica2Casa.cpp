@@ -27,7 +27,7 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glBegin(GL_QUADS);
 
 
-	glColor3f(0, 1, 1);			//fondo amarillo
+	glColor3f(1, 1, 0);			//fondo amarillo
 	glVertex3f(10.0f, 10.0f, -1.0f);
 	glVertex3f(-10.0f, 10.0f, -1.0f);
 	glVertex3f(-10.0f, -10.0f, -1.0f);
