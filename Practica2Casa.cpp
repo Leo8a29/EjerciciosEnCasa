@@ -1,8 +1,8 @@
 //Semestre 2019 - 1
 //************************************************************//
 //************************************************************//
-//************** Alumno (s):  *********************************//
-//*************	Ochoa Nava Jose Leonardo				******//
+//************** Alumno (s): Ochoa Nava Jose Leonardo *********************************//
+//*************	Practica 2.	Ejercicio en Casa Figura				******//
 //*************	Lab. Computaciòn Gràfica Gpo:6			******//
 //************************************************************//
 #include "Main.h"
@@ -27,7 +27,7 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glBegin(GL_QUADS);
 
 
-	glColor3f(1, 1, 0);			//fondo amarillo
+	glColor3f(0, 1, 1);			//fondo amarillo
 	glVertex3f(10.0f, 10.0f, -1.0f);
 	glVertex3f(-10.0f, 10.0f, -1.0f);
 	glVertex3f(-10.0f, -10.0f, -1.0f);
@@ -212,7 +212,7 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glVertex3f(3.0f, -5.0f, -1.0f);
 	glVertex3f(3.0f, -4.0f, -1.0f);
 
-
+	glEnd();
 	glFlush();
 }
 
