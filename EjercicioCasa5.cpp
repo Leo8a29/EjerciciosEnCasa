@@ -1,9 +1,9 @@
 //Semestre 2019 - 1
-//*****             Lab. Computacion Gráfica                ************//
+//*****             Lab. Computacion GrÃ¡fica                ************//
 //*****************  Visual studio 2017                     ***********//
 //************** Alumno (s): Ochoa Nava Jose Leonardo       **********//
-//*************	Practica 5: Ejercicio Clase					   ******//
-//*************		Creacion de brazo, mano y dedos con rotaciones ******//
+//*************	Practica 5: Ejercicio Casa					   ******//
+//*************		Creacion de humanoide completo ******//
 //************************************************************//
 #include "Main.h"
 
@@ -46,14 +46,14 @@ void InitGL(void)     // Inicializamos parametros
 void prisma(void)
 {
 	GLfloat vertice[8][3] = {
-				{0.5 ,-0.5, 0.5},    //Coordenadas Vértice 0 V0
-				{-0.5 ,-0.5, 0.5},    //Coordenadas Vértice 1 V1
-				{-0.5 ,-0.5, -0.5},    //Coordenadas Vértice 2 V2
-				{0.5 ,-0.5, -0.5},    //Coordenadas Vértice 3 V3
-				{0.5 ,0.5, 0.5},    //Coordenadas Vértice 4 V4
-				{0.5 ,0.5, -0.5},    //Coordenadas Vértice 5 V5
-				{-0.5 ,0.5, -0.5},    //Coordenadas Vértice 6 V6
-				{-0.5 ,0.5, 0.5},    //Coordenadas Vértice 7 V7
+				{0.5 ,-0.5, 0.5},    //Coordenadas VÃ©rtice 0 V0
+				{-0.5 ,-0.5, 0.5},    //Coordenadas VÃ©rtice 1 V1
+				{-0.5 ,-0.5, -0.5},    //Coordenadas VÃ©rtice 2 V2
+				{0.5 ,-0.5, -0.5},    //Coordenadas VÃ©rtice 3 V3
+				{0.5 ,0.5, 0.5},    //Coordenadas VÃ©rtice 4 V4
+				{0.5 ,0.5, -0.5},    //Coordenadas VÃ©rtice 5 V5
+				{-0.5 ,0.5, -0.5},    //Coordenadas VÃ©rtice 6 V6
+				{-0.5 ,0.5, 0.5},    //Coordenadas VÃ©rtice 7 V7
 	};
 
 	glBegin(GL_POLYGON);	//Front
@@ -115,8 +115,7 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glRotatef(angleY, 0.0, 1.0, 0.0);
 	glRotatef(angleX, 1.0, 0.0, 0.0);
 
-	//Poner Código Aquí. (0,0,0)
-		//mano izquierda
+	//mano izquierda
 	glPushMatrix();	// brazo
 	glTranslatef(-2.5, 1.25, 0); //(-2.5,1.25,0) aqui se translada mi pivote para colocar la rotacion
 	glRotatef(angHombro, 0, 0, 1); //rotacion en mi pivote (-2.5,1.25,0)
@@ -223,7 +222,7 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glPopMatrix();
 
 
-	glPushMatrix();//dedo meñique 3er parte
+	glPushMatrix();//dedo meÃ±ique 3er parte
 	glTranslatef(0, -0.5, 0); //pivote en (11,-0.75,0)
 	glRotatef(angDedo1, 0, 1, 0);
 
@@ -234,7 +233,7 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glPopMatrix();
 
 
-	glPushMatrix();//dedo meñique 2da parte
+	glPushMatrix();//dedo meÃ±ique 2da parte
 	glTranslatef(-0.25, 0, 0); //pivote en (10.75,-0.75,0)
 	glRotatef(angDedo1, 0, 1, 0);
 
@@ -306,7 +305,7 @@ void display(void)   // Creamos la funcion donde se dibuja
 
 
 	glPushMatrix(); //antebrazo
-	glTranslatef(-5, -1.25, 0); //pivote en (17.5,0,0)
+	glTranslatef(-5, -1.25, 0); //pivote en (-17.5,0,0)
 	glRotatef(angBrazo, 0, 1, 0);
 
 	glPushMatrix();//dibujar antebrazo
@@ -327,7 +326,7 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glPopMatrix();
 
 	glPushMatrix(); //Dedo pulgar 1ra parte
-	glTranslatef(1, 1.25, 0); //pivote en (9.5,1.25,0)
+	glTranslatef(-1, 1.25, 0); //pivote en (24.5.5,1.25,0)
 	glRotatef(angDedo1, -1, 0, 0);
 
 	glPushMatrix();
@@ -337,7 +336,7 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glPopMatrix();
 
 	glPushMatrix();		//dedo pulgar 2d parte
-	glTranslatef(0, 0.5, 0); //pivote en (9.5,1.75,0)
+	glTranslatef(0, 0.5, 0); //pivote en (24.5.5,1.75,0)
 	glRotatef(angDedo1, -1, 0, 0);
 
 	glPushMatrix();
@@ -347,7 +346,7 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glPopMatrix();
 
 	glPushMatrix();	//dedo indice 2da parte
-	glTranslatef(1.5, -1, 0); //pivote (11,0.75,0)
+	glTranslatef(-1.5, -1, 0); //pivote (-26,0.75,0)
 	glRotatef(angDedo1, 0, 1, 0);
 
 	glPushMatrix();
@@ -363,7 +362,7 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glPopMatrix();
 
 	glPushMatrix(); //dedo indice 3er parte
-	glTranslatef(0.5, 0, 0); //pivote en (11.5,0.75,0)
+	glTranslatef(0.5, 0, 0); //pivote en (-26.5,0.75,0)
 	glRotatef(angDedo1, 0, 1, 0);
 
 	glPushMatrix();
@@ -373,46 +372,46 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glPopMatrix();
 
 	glPushMatrix();//dedo anular 3er parte
-	glTranslatef(0, -1, 0); //pivote en (11.5,-0.25,0)
+	glTranslatef(0, -1, 0); //pivote en (26.5,-0.25,0)
 	glRotatef(angDedo1, 0, 1, 0);
 
 	glPushMatrix();
-	glTranslatef(0.25, 0, 0);
-	glScalef(0.5, 0.5, 0.5);
-	prisma();
-	glPopMatrix();
-
-
-	glPushMatrix();//dedo anular 2da parte
-	glTranslatef(-0.5, 0, 0); //pivote en (11,-0.25,0)
-	glRotatef(angDedo1, 0, 1, 0);
-
-	glPushMatrix();
-	glTranslatef(0.25, 0, 0);
-	glScalef(0.5, 0.5, 0.5);
-	prisma();
-	glPopMatrix();
-
-	glPushMatrix();//1ra parte
 	glTranslatef(-0.25, 0, 0);
 	glScalef(0.5, 0.5, 0.5);
 	prisma();
 	glPopMatrix();
 
 
-	glPushMatrix();//dedo meñique 3er parte
-	glTranslatef(0, -0.5, 0); //pivote en (11,-0.75,0)
+	glPushMatrix();//dedo anular 2da parte
+	glTranslatef(0.5, 0, 0); //pivote en (26,-0.25,0)
 	glRotatef(angDedo1, 0, 1, 0);
 
 	glPushMatrix();
-	glTranslatef(0.125, 0, 0);
+	glTranslatef(-0.25, 0, 0);
+	glScalef(0.5, 0.5, 0.5);
+	prisma();
+	glPopMatrix();
+
+	glPushMatrix();//1ra parte
+	glTranslatef(0.25, 0, 0);
+	glScalef(0.5, 0.5, 0.5);
+	prisma();
+	glPopMatrix();
+
+
+	glPushMatrix();//dedo meÃ±ique 3er parte
+	glTranslatef(0, -0.5, 0); //pivote en (26,-0.75,0)
+	glRotatef(angDedo1, 0, 1, 0);
+
+	glPushMatrix();
+	glTranslatef(-0.125, 0, 0);
 	glScalef(0.25, 0.5, 0.5);
 	prisma();
 	glPopMatrix();
 
 
-	glPushMatrix();//dedo meñique 2da parte
-	glTranslatef(-0.25, 0, 0); //pivote en (10.75,-0.75,0)
+	glPushMatrix();//dedo meÃ±ique 2da parte
+	glTranslatef(0.25, 0, 0); //pivote en (26.75,-0.75,0)
 	glRotatef(angDedo1, 0, 1, 0);
 
 	glPushMatrix();
@@ -422,35 +421,35 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glPopMatrix();
 
 	glPushMatrix();//primera parte
-	glTranslatef(-0.125, 0, 0);
+	glTranslatef(0.125, 0, 0);
 	glScalef(0.25, 0.5, 0.5);
 	prisma();
 	glPopMatrix();
 
 
 	glPushMatrix();//dedo medio 1ra parte
-	glTranslatef(0.5, 1, 0); //pivote en (11.25,0.25,0)
+	glTranslatef(0.5, 1, 0); //pivote en (-26.25,0.25,0)
 	glRotatef(angDedo1, 0, 1, 0);
 
 	glPushMatrix();
-	glTranslatef(-0.375, 0, 0);
+	glTranslatef(0.375, 0, 0);
 	glScalef(0.75, 0.5, 0.5);
 	prisma();
 	glPopMatrix();
 
 	glPushMatrix();//2da parte dedo medio
-	glTranslatef(0.375, 0, 0);
+	glTranslatef(-0.375, 0, 0);
 	glScalef(0.75, 0.5, 0.5);
 	prisma();
 	glPopMatrix();
 
 
 	glPushMatrix();//dedo medio 3ra parte
-	glTranslatef(0.75, 0, 0); //pivote en (12,0.25,0)
+	glTranslatef(-0.75, 0, 0); //pivote en (-27,0.25,0)
 	glRotatef(angDedo1, 0, 1, 0);
 
 	glPushMatrix();
-	glTranslatef(0.375, 0, 0);
+	glTranslatef(-0.375, 0, 0);
 	glScalef(0.75, 0.5, 0.5);
 	prisma();
 	glPopMatrix();
@@ -516,7 +515,7 @@ void keyboard(unsigned char key, int x, int y)  // Create Keyboard Function
 		transX -= 0.2f;
 		break;
 	case 'h':
-		//para rotar el hombro en z, lim 90°
+		//para rotar el hombro en z, lim 90Â°
 		if (angHombro < 90) {
 			angHombro += 0.5f;
 			printf("%f", angHombro);
@@ -530,7 +529,7 @@ void keyboard(unsigned char key, int x, int y)  // Create Keyboard Function
 		}
 		break;
 	case 'l':
-		//para rotar el antebrazo en Y enfrente con lim90°
+		//para rotar el antebrazo en Y enfrente con lim90Â°
 		if (angBrazo < 90) {
 			angBrazo += 0.5f;
 			printf("%f", angBrazo);
@@ -543,13 +542,13 @@ void keyboard(unsigned char key, int x, int y)  // Create Keyboard Function
 		}
 		break;
 	case 'p':
-		//para rotar palma en Y enfrente 90°
+		//para rotar palma en Y enfrente 90Â°
 		if (angPalma < 90) {
 			angPalma += 0.5f;
 		}
 		break;
 	case 'P':
-		//para rotar el palma atras 90°
+		//para rotar el palma atras 90Â°
 		if (angPalma > -90) {
 			angPalma -= 0.5f;
 		}
@@ -621,15 +620,15 @@ int main(int argc, char** argv)   // Main Function
 	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH); // Display Mode (Clores RGB y alpha | Buffer Doble )
 	screenW = glutGet(GLUT_SCREEN_WIDTH);
 	screenH = glutGet(GLUT_SCREEN_HEIGHT);
-	glutInitWindowSize(500, 500);	// Tamaño de la Ventana
+	glutInitWindowSize(500, 500);	// TamaÃ±o de la Ventana
 	glutInitWindowPosition(0, 0);	//Posicion de la Ventana
 	glutCreateWindow("Practica 5"); // Nombre de la Ventana
 	printf("Resolution H: %i \n", screenW);
 	printf("Resolution V: %i \n", screenH);
 	InitGL();						// Parametros iniciales de la aplicacion
-	glutDisplayFunc(display);  //Indicamos a Glut función de dibujo
-	glutReshapeFunc(reshape);	//Indicamos a Glut función en caso de cambio de tamano
-	glutKeyboardFunc(keyboard);	//Indicamos a Glut función de manejo de teclado
+	glutDisplayFunc(display);  //Indicamos a Glut funciÃ³n de dibujo
+	glutReshapeFunc(reshape);	//Indicamos a Glut funciÃ³n en caso de cambio de tamano
+	glutKeyboardFunc(keyboard);	//Indicamos a Glut funciÃ³n de manejo de teclado
 	glutSpecialFunc(arrow_keys);	//Otras
 	glutMainLoop();          // 
 
