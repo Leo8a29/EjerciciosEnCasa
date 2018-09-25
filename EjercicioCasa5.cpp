@@ -7,7 +7,13 @@
 //************************************************************//
 #include "Main.h"
 
-float transZ = -5.0f;
+//Y rota brazo derecho
+//L rota brazo izquierdo
+//H rota hombro
+//P rota mano
+//M rotan dedos
+
+float transZ = 0.0f;
 float transX = 0.0f;
 float angleX = 0.0f;
 float angleY = 0.0f;
@@ -17,7 +23,7 @@ float angHombro = 0.0;
 float angBrazo = 0.0;
 float angPalma = 0.0;
 float angDedo1 = 0.0;
-float angDedo2 = 0.0;
+float angBrazo2 = 0.0;
 
 
 GLfloat Position[] = { 0.0f, 3.0f, 0.0f, 1.0f };			// Light Position
@@ -115,7 +121,63 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glRotatef(angleY, 0.0, 1.0, 0.0);
 	glRotatef(angleX, 1.0, 0.0, 0.0);
 
-	//mano izquierda
+	//Poner Código Aquí. (0,0,0)
+	
+	glPushMatrix();//torso
+	glTranslatef(-7.5, -3.75, 0);
+	glScalef(10, 10, 5);
+	prisma();
+	glPopMatrix();
+
+	glPushMatrix();//cuello
+	glTranslatef(-7.5, 1.75, 0);
+	glScalef(4, 1, 5);
+	prisma();
+	glPopMatrix();
+
+	glPushMatrix();//cabeza
+	glTranslatef(-7.5, 4.25, 0);
+	glScalef(6, 4, 5);
+	prisma();
+	glPopMatrix();
+
+	glPushMatrix();//muslo izq
+	glTranslatef(-4, -11.25, 0);
+	glScalef(3, 5, 5);
+	prisma();
+	glPopMatrix();
+
+	glPushMatrix();//rod izq
+	glTranslatef(-4, -14.25, 0);
+	glScalef(3, 1, 5);
+	prisma();
+	glPopMatrix();
+
+	glPushMatrix();//chamorro izq
+	glTranslatef(-4, -17.25, 0);
+	glScalef(3, 5, 5);
+	prisma();
+	glPopMatrix();
+
+	glPushMatrix();//muslo der
+	glTranslatef(-11, -11.25, 0);
+	glScalef(3, 5, 5);
+	prisma();
+	glPopMatrix();
+
+	glPushMatrix();//rod der
+	glTranslatef(-11, -14.25, 0);
+	glScalef(3, 1, 5);
+	prisma();
+	glPopMatrix();
+
+	glPushMatrix();//chamorro der
+	glTranslatef(-11, -17.25, 0);
+	glScalef(3, 5, 5);
+	prisma();
+	glPopMatrix();
+
+
 	glPushMatrix();	// brazo
 	glTranslatef(-2.5, 1.25, 0); //(-2.5,1.25,0) aqui se translada mi pivote para colocar la rotacion
 	glRotatef(angHombro, 0, 0, 1); //rotacion en mi pivote (-2.5,1.25,0)
@@ -291,9 +353,9 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glPopMatrix();
 	glPopMatrix();
 
-//Mano derecha
-		
-	glPushMatrix();	// brazo
+	//Mano derecha
+
+	glPushMatrix(); // brazo
 	glTranslatef(-12.5, 1.25, 0); //(-12.5,1.25,0) aqui se translada mi pivote para colocar la rotacion
 	glRotatef(angHombro, 0, 0, 1); //rotacion en mi pivote (-12.5,1.25,0)
 
@@ -303,10 +365,9 @@ void display(void)   // Creamos la funcion donde se dibuja
 	prisma();
 	glPopMatrix();
 
-
-	glPushMatrix(); //antebrazo
+	glPushMatrix();//antebrazo
 	glTranslatef(-5, -1.25, 0); //pivote en (-17.5,0,0)
-	glRotatef(angBrazo, 0, 1, 0);
+	glRotatef(angBrazo2, 0, 1, 0);
 
 	glPushMatrix();//dibujar antebrazo
 	glTranslatef(-3, 0, 0);	//vamos al centro de mi nuevo prisma para dibujarlo
@@ -314,9 +375,8 @@ void display(void)   // Creamos la funcion donde se dibuja
 	prisma();
 	glPopMatrix();
 
-
-	glPushMatrix(); //palma
-	glTranslatef(-6, 0, 0); //pivote en (23.5,0,0)
+	glPushMatrix();//palma
+	glTranslatef(-6, 0, 0); //pivote en (-23.5,0,0)
 	glRotatef(angPalma, 0, 1, 0); //rotacion en mi pivote Y
 
 	glPushMatrix();//dibujar palma
@@ -325,7 +385,7 @@ void display(void)   // Creamos la funcion donde se dibuja
 	prisma();
 	glPopMatrix();
 
-	glPushMatrix(); //Dedo pulgar 1ra parte
+	glPushMatrix();//Dedo pulgar 1ra parte
 	glTranslatef(-1, 1.25, 0); //pivote en (24.5.5,1.25,0)
 	glRotatef(angDedo1, -1, 0, 0);
 
@@ -334,8 +394,8 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glScalef(0.5, 0.5, 0.5);
 	prisma();
 	glPopMatrix();
-
-	glPushMatrix();		//dedo pulgar 2d parte
+	
+	glPushMatrix();//dedo pulgar 2da parte
 	glTranslatef(0, 0.5, 0); //pivote en (24.5.5,1.75,0)
 	glRotatef(angDedo1, -1, 0, 0);
 
@@ -345,7 +405,7 @@ void display(void)   // Creamos la funcion donde se dibuja
 	prisma();
 	glPopMatrix();
 
-	glPushMatrix();	//dedo indice 2da parte
+	glPushMatrix();//dedo indice 2da parte
 	glTranslatef(-1.5, -1, 0); //pivote (-26,0.75,0)
 	glRotatef(angDedo1, 0, 1, 0);
 
@@ -361,8 +421,9 @@ void display(void)   // Creamos la funcion donde se dibuja
 	prisma();
 	glPopMatrix();
 
-	glPushMatrix(); //dedo indice 3er parte
-	glTranslatef(0.5, 0, 0); //pivote en (-26.5,0.75,0)
+	
+	glPushMatrix();//dedo indice 3er parte
+	glTranslatef(-0.5, 0, 0); //pivote en (-26.5,0.75,0)
 	glRotatef(angDedo1, 0, 1, 0);
 
 	glPushMatrix();
@@ -370,6 +431,7 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glScalef(0.5, 0.5, 0.5);
 	prisma();
 	glPopMatrix();
+
 
 	glPushMatrix();//dedo anular 3er parte
 	glTranslatef(0, -1, 0); //pivote en (26.5,-0.25,0)
@@ -380,7 +442,6 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glScalef(0.5, 0.5, 0.5);
 	prisma();
 	glPopMatrix();
-
 
 	glPushMatrix();//dedo anular 2da parte
 	glTranslatef(0.5, 0, 0); //pivote en (26,-0.25,0)
@@ -411,7 +472,7 @@ void display(void)   // Creamos la funcion donde se dibuja
 
 
 	glPushMatrix();//dedo meñique 2da parte
-	glTranslatef(0.25, 0, 0); //pivote en (26.75,-0.75,0)
+	glTranslatef(0.25, 0, 0); //pivote en (-26.25,-0.75,0)
 	glRotatef(angDedo1, 0, 1, 0);
 
 	glPushMatrix();
@@ -421,28 +482,30 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glPopMatrix();
 
 	glPushMatrix();//primera parte
-	glTranslatef(0.125, 0, 0);
+	glTranslatef(-0.125, 0, 0);
 	glScalef(0.25, 0.5, 0.5);
 	prisma();
 	glPopMatrix();
 
-
-	glPushMatrix();//dedo medio 1ra parte
+	glPushMatrix();
 	glTranslatef(0.5, 1, 0); //pivote en (-26.25,0.25,0)
 	glRotatef(angDedo1, 0, 1, 0);
 
-	glPushMatrix();
-	glTranslatef(0.375, 0, 0);
-	glScalef(0.75, 0.5, 0.5);
-	prisma();
-	glPopMatrix();
-
-	glPushMatrix();//2da parte dedo medio
+	glPushMatrix();//1ra parte dedo medio
 	glTranslatef(-0.375, 0, 0);
 	glScalef(0.75, 0.5, 0.5);
 	prisma();
 	glPopMatrix();
 
+	glPushMatrix();//dedo medio 2da parte
+	glTranslatef(-0.75, 0, 0); //pivote en (-27,0.25,0)
+	glRotatef(angDedo1, 0, 1, 0);
+
+	glPushMatrix();
+	glTranslatef(-0.375, 0, 0);
+	glScalef(0.75, 0.5, 0.5);
+	prisma();
+	glPopMatrix();
 
 	glPushMatrix();//dedo medio 3ra parte
 	glTranslatef(-0.75, 0, 0); //pivote en (-27,0.25,0)
@@ -454,6 +517,11 @@ void display(void)   // Creamos la funcion donde se dibuja
 	prisma();
 	glPopMatrix();
 
+	
+
+	glPopMatrix();
+	glPopMatrix();
+	glPopMatrix();
 	glPopMatrix();
 	glPopMatrix();
 	glPopMatrix();
@@ -468,7 +536,7 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glPopMatrix();
 	glPopMatrix();
 
-			
+
 
 
 	glutSwapBuffers();
@@ -530,7 +598,7 @@ void keyboard(unsigned char key, int x, int y)  // Create Keyboard Function
 		break;
 	case 'l':
 		//para rotar el antebrazo en Y enfrente con lim90°
-		if (angBrazo < 90) {
+		if (angBrazo < 0) {
 			angBrazo += 0.5f;
 			printf("%f", angBrazo);
 		}
@@ -566,21 +634,19 @@ void keyboard(unsigned char key, int x, int y)  // Create Keyboard Function
 		}
 		break;
 
-	case 'n':
-		//rotar los dedos
-		if (angDedo2 < 10) {
-			angDedo2 += 0.5f;
+	case 'y':
+		//para rotar el antebrazo en Y enfrente con lim90°
+		if (angBrazo2 < 90) {
+			angBrazo2 += 0.5f;
+			printf("%f", angBrazo);
 		}
 		break;
-	case 'N':
-		//rotar los dedos
-		if (angDedo2 > -15) {
-			angDedo2 -= 0.5f;
+	case 'Y':
+		//para rotar el antebrazo para atras
+		if (angBrazo2 < 0) {
+			angBrazo2 -= 0.5f;
 		}
 		break;
-
-
-
 
 	case 27:        // Cuando Esc es presionado...
 		exit(0);   // Salimos del programa
